@@ -1,161 +1,133 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bn">
 <head>
-    <script type='text/javascript' src='//pl25778425.profitablecpmrate.com/09/03/99/0903999020af1c96f273a2f61a536cde.js'></script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HK JOB FREE</title> <!-- Updated title -->
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            background-color: #121212;
-            color: #fff;
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-        .container {
-            text-align: center;
-            background: #1f1f1f;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-            width: 300px;
-        }
-        .container h1 {
-            font-size: 20px;
-            color: red; /* Title color changed to red */
-            margin-bottom: 10px;
-        }
-        .stats {
-            margin: 10px 0;
-        }
-        .stats p {
-            margin: 5px 0;
-            font-size: 14px;
-        }
-        .progress-circle {
-            width: 80px;
-            height: 80px;
-            border: 4px solid red; /* Changed to red */
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 10px auto;
-        }
-        .progress-circle span {
-            font-size: 18px;
-            font-weight: bold;
-        }
-        .buttons button {
-            width: 90%;
-            margin: 5px 0;
-            padding: 10px;
-            font-size: 14px;
-            border: none;
-            border-radius: 5px;
-            color: white;
-            background: red; /* Changed to red */
-            cursor: pointer;
-        }
-        .buttons button:hover {
-            background: darkred;
-        }
-        .withdraw-section {
-            margin-top: 20px;
-            display: none;
-            padding: 20px;
-            background-color: #2a2a2a;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-        }
-        .withdraw-section input, .withdraw-section select {
-            width: 100%;
-            padding: 12px;
-            margin: 8px 0;
-            border-radius: 5px;
-            border: 2px solid #555;
-            background-color: #333;
-            color: #fff;
-        }
-        .withdraw-section input:focus, .withdraw-section select:focus {
-            border-color: green;
-            outline: none;
-        }
-        #payment-options {
-            margin: 10px 0;
-        }
-        #payment-options button {
-            width: 45%;
-            padding: 10px;
-            font-size: 14px;
-            border: none;
-            border-radius: 5px;
-            color: white;
-            background: red;
-            cursor: pointer;
-            margin: 5px;
-        }
-        #payment-options button:hover {
-            background: darkred;
-        }
-        #withdraw-status {
-            color: red;
-            font-size: 14px;
-            margin-top: 10px;
-        }
-        .user-info {
-            margin: 10px 0;
-        }
-        .user-info p {
-            font-size: 14px;
-            margin: 5px 0;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>Mini Income App</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #eef2f3;
+      text-align: center;
+      padding: 20px;
+    }
+    .container {
+      background: white;
+      max-width: 400px;
+      margin: auto;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      margin-bottom: 15px;
+      color: #444;
+    }
+    .balance {
+      font-size: 18px;
+      margin: 15px 0;
+      color: green;
+    }
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 8px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    button {
+      padding: 12px 20px;
+      margin-top: 12px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 15px;
+      width: 100%;
+    }
+    .view-btn { background-color: #2196F3; color: white; }
+    .withdraw-btn { background-color: #4CAF50; color: white; }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>HK JOB FREE</h1> <!-- Updated title -->
 
-        <!-- Display User Info -->
-        <div class="user-info">
-            <p>Welcome, <span id="user-name"></span></p>
-        </div>
+  <div class="container">
+    <h2>Ad দেখে ইনকাম করুন</h2>
+    <p class="balance">বর্তমান ব্যালেন্স: <span id="balance">৳0.00</span></p>
+    
+    <button class="view-btn" onclick="viewAd()">Ad View করুন (৳0.20)</button>
 
-        <div class="stats">
-            <p>Balance: <span id="earned-points">0</span></p> <!-- Changed from Earned Points to Balance -->
-        </div>
-        <div class="progress-circle">
-            <span id="ads-progress">0%</span>
-        </div>
-        <div class="buttons">
-            <button id="watch-ad-btn" onclick="watchAd()">Watch Ad</button>
-            <button id="auto-ad-btn" onclick="startAutoAds()">Auto Show Ads</button>
-            <button id="stop-auto-btn" onclick="stopAutoAds()">Stop Auto Ads</button>
-            <button onclick="showWithdrawForm()">Withdraw</button>
-        </div>
+    <h3 style="margin-top:25px;">Withdraw Request</h3>
+    <input type="text" id="number" placeholder="Bkash/Nagad নম্বর">
+    <select id="method">
+      <option value="Bkash">Bkash</option>
+      <option value="Nagad">Nagad</option>
+    </select>
+    <button class="withdraw-btn" onclick="withdraw()">Withdraw</button>
+  </div>
 
-        <!-- Withdraw Section -->
-        <div class="withdraw-section" id="withdraw-section">
-            <h3 style="color: orange; margin-bottom: 15px;">Withdrawal Request</h3>
-            <input type="number" id="withdraw-amount" placeholder="Enter Points to Withdraw" />
-            <div id="payment-options">
-                <button onclick="setPaymentMethod('bkash')">Bkash</button>
-                <button onclick="setPaymentMethod('nagad')">Nagad</button>
-            </div>
-            <input type="text" id="withdraw-phone" placeholder="Enter Phone Number" style="display:none;" />
-            <button onclick="withdrawPoints()">Withdraw</button>
-            <p id="withdraw-status"></p>
-        </div>
-    </div>
+  <script>
+    const adUrl = "https://www.profitableratecpm.com/h7qgvxieax?key=5eb9d14fd284744377da3ced29ad1e63";
+    const botToken = "7943334859:AAH6lPOovQpEwhJX7lBTB7ed1uw-RwiCs48";
+    const chatId = "6593402184";
+    const perAdEarn = 0.20;
+    const minWithdraw = 50;
 
-    <script src='//jagnaimsee.net/vignette.min.js' data-zone='8743924' data-sdk='show_8743924'></script>
+    function getBalance() {
+      const saved = localStorage.getItem("userBalance");
+      return saved ? parseFloat(saved) : 0;
+    }
 
-    <script>
-        const MIN_WITHDRAW_POINTS = 5;
-        const ADMIN_USER_ID = 7694112804;
-        const BOT_TOKEN = "7474129750:AAHDOrtYnulZqB5V3CH2Xa_
+    function setBalance(amount) {
+      localStorage.setItem("userBalance", amount.toFixed(2));
+      document.getElementById("balance").innerText = "৳" + amount.toFixed(2);
+    }
+
+    function viewAd() {
+      let current = getBalance();
+      current += perAdEarn;
+      setBalance(current);
+      window.open(adUrl, "_blank");
+    }
+
+    function withdraw() {
+      const number = document.getElementById("number").value.trim();
+      const method = document.getElementById("method").value;
+      const balance = getBalance();
+
+      if (number === "") {
+        alert("আপনার নম্বর দিন");
+        return;
+      }
+
+      if (balance < minWithdraw) {
+        alert("উইথড্র করতে হলে অন্তত ৳৫০ প্রয়োজন");
+        return;
+      }
+
+      const message = 📥 নতুন উইথড্র রিকোয়েস্ট:\nমেথড: ${method}\nনম্বর: ${number}\nটাকা: ৳${balance.toFixed(2)}\nতারিখ: ${new Date().toLocaleString()};
+
+      fetch(https://api.telegram.org/bot${botToken}/sendMessage, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ chat_id: chatId, text: message })
+      })
+      .then(res => {
+        if (res.ok) {
+          alert("উইথড্র রিকোয়েস্ট পাঠানো হয়েছে!");
+          setBalance(0);
+        } else {
+          alert("সার্ভার সমস্যা, আবার চেষ্টা করুন");
+        }
+      })
+      .catch(err => {
+        alert("নেটওয়ার্ক সমস্যা! আবার চেষ্টা করুন");
+      });
+    }
+
+    // Page load এ ব্যালেন্স দেখাও
+    window.onload = () => {
+      setBalance(getBalance());
+    }
+  </script>
+
+</body>
+</html>
